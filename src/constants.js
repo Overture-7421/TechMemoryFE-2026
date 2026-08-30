@@ -1,1 +1,1 @@
-export const CATEGORIES = ["Programación", "Mecánica", "Diseño", "Negocios"];
+export const CATEGORIES = ["Programación", "Mecánica", "Diseño", "Negocios", "Ayuda"];
