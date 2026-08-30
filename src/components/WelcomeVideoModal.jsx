@@ -45,7 +45,7 @@ export default function WelcomeVideoModal({ open, onDismiss }) {
               ¿Cómo usar la memoria técnica?
             </h2>
             <p className="text-xs text-neutral-500 mt-0.5">
-              Un vistazo rápido en video. Si ya sabés cómo funciona, cerrá esto y listo.
+              Un vistazo rápido: si ya sabes cómo funciona, puedes cerrar esto y continuar.
             </p>
           </div>
           <button
