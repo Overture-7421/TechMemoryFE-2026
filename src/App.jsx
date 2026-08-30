@@ -5,6 +5,7 @@ import DocumentFormModal from "./components/DocumentFormModal.jsx";
 import PendingView from "./components/PendingView.jsx";
 import MentorPasswordModal from "./components/MentorPasswordModal.jsx";
 import RejectDocModal from "./components/RejectDocModal.jsx";
+import WelcomeVideoModal from "./components/WelcomeVideoModal.jsx";
 import {
   fetchDocs,
   fetchPendingDocs,
@@ -35,6 +36,33 @@ export default function App() {
   // null = modal de rechazo cerrado. Si no, es el doc que se está
   // rechazando (RejectDocModal solo necesita su id/título).
   const [rejectTarget, setRejectTarget] = useState(null);
+
+  // Popup de bienvenida con el video tutorial — una sola vez por navegador.
+  // localStorage (no sessionStorage) a propósito: a diferencia de
+  // mentorCreds, esto no es sensible y sí queremos que sobreviva un reload
+  // o cerrar la pestaña, para no repetirlo en cada visita. Envuelto en
+  // try/catch porque localStorage puede tirar (modo privado, storage
+  // bloqueado) y que no se abra el popup un par de veces de más no amerita
+  // romper el resto de la app.
+  const WELCOME_VIDEO_KEY = "techmemory:welcome-video-seen";
+  const [showWelcomeVideo, setShowWelcomeVideo] = useState(false);
+  useEffect(() => {
+    try {
+      if (!localStorage.getItem(WELCOME_VIDEO_KEY)) setShowWelcomeVideo(true);
+    } catch {
+      // Sin storage disponible: mejor no mostrarlo que arriesgar mostrarlo
+      // en cada visita sin forma de recordarlo.
+    }
+  }, []);
+  const dismissWelcomeVideo = () => {
+    setShowWelcomeVideo(false);
+    try {
+      localStorage.setItem(WELCOME_VIDEO_KEY, "1");
+    } catch {
+      // No hay mucho que hacer si esto falla — a lo sumo vuelve a
+      // aparecer la próxima visita.
+    }
+  };
 
   // Toast liviano para avisos no bloqueantes (p. ej. si el email de
   // rechazo se mandó o no) — a diferencia de alert(), no corta el flujo.
@@ -318,6 +346,8 @@ export default function App() {
         onRejected={handleRejected}
         onDocGone={handleRejectDocGone}
       />
+
+      <WelcomeVideoModal open={showWelcomeVideo} onDismiss={dismissWelcomeVideo} />
 
       {toast && (
         <div className="fixed bottom-4 right-4 z-[80] max-w-sm">
