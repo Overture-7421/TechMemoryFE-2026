@@ -76,7 +76,7 @@ export default function Sidebar({
           className="w-full rounded-md bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 text-neutral-300 text-xs font-medium py-1.5 transition-colors"
           title="Requiere credenciales de mentor"
         >
-          📋 Pendientes (mentor)
+           Pendientes (mentor)
         </button>
       </div>
 
