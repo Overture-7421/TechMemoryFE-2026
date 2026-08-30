@@ -1,4 +1,4 @@
-# Overture Docs — Development Checklist
+# TechMemory — Development Checklist
 
 Updated 2026-08-11. Client (React/Vite/Tailwind) at project root
 (`techmemory/`), server (Express) in `techmemory/server/`. Oracle Autonomous

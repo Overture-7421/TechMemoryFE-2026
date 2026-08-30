@@ -58,7 +58,7 @@ export default function Sidebar({
   return (
     <aside className="w-72 shrink-0 h-screen sticky top-0 flex flex-col bg-neutral-950 border-r border-neutral-800">
       <div className="px-4 py-4 border-b border-neutral-800">
-        <h1 className="text-base font-semibold text-white">Overture Docs</h1>
+        <h1 className="text-base font-semibold text-white">TechMemory</h1>
         <p className="text-xs text-neutral-500 mt-0.5">Wiki interno del equipo</p>
       </div>
 

@@ -1,6 +1,6 @@
 # techmemory (frontend)
 
-React + Vite frontend for the Overture docs library. The API server used to
+React + Vite frontend for TechMemory, the team's docs library. The API server used to
 live in `server/` in this same repo — it's been split out to its own repo
 (`techmemory-server`, sibling folder) so it can run on a real Node host
 instead of GitHub Pages. See that repo's `DEPLOY.md` for backend deploy
