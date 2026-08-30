@@ -25,9 +25,9 @@ Requests to `/api/*` are proxied to `http://localhost:3001` (see
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
 3. Push to `main` — `.github/workflows/deploy.yml` builds and deploys
    automatically.
-4. `vite.config.js` sets `base: "/techmemory/"` for the project-pages URL
-   (`https://<user>.github.io/techmemory/`). Update it if the repo is
-   renamed, or set it to `"/"` if you switch to a custom domain (and add a
-   `public/CNAME` file with the domain).
+4. `vite.config.js` sets `base: "/TechMemoryFE-2026/"` for the project-pages
+   URL (`https://overture-7421.github.io/TechMemoryFE-2026/`). Update it if
+   the repo is renamed, or set it to `"/"` if you switch to a custom domain
+   (and add a `public/CNAME` file with the domain).
 5. On the server side, set `ALLOWED_ORIGINS` to this Pages URL so CORS
    allows it.
