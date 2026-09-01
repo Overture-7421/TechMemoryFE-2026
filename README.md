@@ -25,9 +25,13 @@ Requests to `/api/*` are proxied to `http://localhost:3001` (see
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
 3. Push to `main` — `.github/workflows/deploy.yml` builds and deploys
    automatically.
-4. `vite.config.js` sets `base: "/TechMemoryFE-2026/"` for the project-pages
-   URL (`https://overture-7421.github.io/TechMemoryFE-2026/`). Update it if
-   the repo is renamed, or set it to `"/"` if you switch to a custom domain
-   (and add a `public/CNAME` file with the domain).
-5. On the server side, set `ALLOWED_ORIGINS` to this Pages URL so CORS
-   allows it.
+4. Served on the custom domain `techmemory.overture7421.org` (DNS CNAME
+   record → `overture-7421.github.io`, custom domain set under Settings →
+   Pages). Because it's served from the domain root and not a `/<repo>/`
+   subpath, `vite.config.js` sets `base: "/"` and `public/CNAME` holds the
+   domain — Vite copies it into `dist/` on build so GitHub Pages re-applies
+   the custom domain each deploy. If the site ever moves back to the
+   `<user>.github.io/<repo>/` project-pages URL, revert `base` to
+   `/TechMemoryFE-2026/` and delete `public/CNAME`.
+5. On the server side, set `ALLOWED_ORIGINS` to this domain
+   (`https://techmemory.overture7421.org`) so CORS allows it.

@@ -2,10 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  // GitHub Pages project site: served from https://<user>.github.io/<repo>/,
-  // so assets need this prefix. Must match the actual repo name
-  // (Overture-7421/TechMemoryFE-2026) — update if the repo is renamed.
-  base: "/TechMemoryFE-2026/",
+  // Served from the custom domain root (techmemory.overture7421.org via
+  // GitHub Pages CNAME), not a /<repo>/ subpath — so base is "/".
+  base: "/",
   plugins: [react()],
   server: {
     port: 5173,
