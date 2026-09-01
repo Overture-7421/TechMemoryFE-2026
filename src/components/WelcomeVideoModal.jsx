@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 // Autoplay-first embed nocookie: no guarda cookies de tracking hasta que
 // alguien le da play, tiene el mismo player que youtube.com/embed.
-const VIDEO_ID = "LDU_Txk06tM";
+const VIDEO_ID = "009lo2qQlys";
 const EMBED_SRC = `https://www.youtube-nocookie.com/embed/${VIDEO_ID}`;
 
 // Popup de bienvenida con el video tutorial embebido — pensado para gente
